@@ -1,67 +1,161 @@
+<!doctype html>
+<html lang="en">
 
-<!DOCTYPE html>
-<html lang="es">
 <head>
-    <title>Interfaz Web</title>
-    <meta charset="UTF-8" />
-    <link href="imagenes/favicon.png" rel="icon">
+    <title>CENFOTEC-PROFEFRANK</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="favicon.png" rel="icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="css/index.css" rel="stylesheet">
+    <link href="css/lightbox1.css" rel="stylesheet">
+    <link href="css/lightbox2.css" rel="stylesheet">
+    <link href="css/tabs.css" rel="stylesheet">
+    <link href="css/carousel.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e0f2f7; /* Celeste claro */
+            margin: 0; /* Eliminar márgenes por defecto del body */
+
+            font-family: 'Merriweather', serif; /* Ejemplo para el cuerpo del texto */
+            line-height: 1.6; /* Buena para la legibilidad del cuerpo de texto */
+        }
+
+        h1, h2, h3, h4, h5, h6 { /* Aplica Helvetica solo a los títulos principales */
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Ejemplo para títulos */
+            font-weight: bold; /* Generalmente los títulos son en negrita */
+            margin-bottom: 0.5em; /* Espacio debajo del título */
+        }
+
+        .main-nav {
+            background-color: rgb(0, 3, 162);
+            color: rgb(235, 235, 235);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center; /* Centra los elementos del menú */
+            align-items: center; /* Centrar verticalmente */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            position: sticky; /* Fija el menú en la parte superior al hacer scroll */
+            top: 0;
+            z-index: 100; /* Asegura que esté por encima de otros elementos */
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Centra los items de la lista horizontalmente */
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links li:first-child {
+            margin-left: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #e8e8e8;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            padding: 8px 12px; /* Añade un poco de espacio alrededor de los enlaces */
+            border-radius: 5px; /* Opcional: bordes redondeados para los enlaces */
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Aplica Helvetica a los enlaces del menú */
+        }
+
+        .nav-links a:hover {
+            color: #007bff; /* Color al pasar el ratón */
+            background-color: #f0f8ff; /* Opcional: fondo al pasar el ratón */
+        }
+
+
+        /* Estilos adicionales para el header existente (si deseas mantenerlos) */
+        header.fondo h1 {
+            color: rgb(175, 194, 255); /* Mantener el color blanco del título del header */
+            /* Otros estilos que tenías para el header */
+            display: none; /* Ocultar el header anterior */
+        }
+
+        /* Ajustar el margen superior del contenido principal para que no quede debajo del menú fijo */
+        section {
+            padding-top: 70px; /* Ajustar según la altura del menú */
+        }
+
+        /* En tu archivo css/style.css o dentro de la etiqueta <style> */
+        .separator {
+            border-top: 1px solid #ccc; /* Color y grosor de la línea */
+            margin: 30px auto; /* Margen superior e inferior para la "sangría", y auto para centrar */
+            width: 80%; /* Ancho de la línea */
+        }
+
+        .nav-logo {
+            display: none; /* Oculta el logo */
+        }
+    </style>
 </head>
+
 <body>
-
-    <header class="">
-        <!-- video mp4 -->
-        <div>
-            <video height="550" width="100%" autoplay="" loop="" muted="muted">
-                <source src="videos/video1.mp4" type="video/mp4">
-            </video>
-        </div>
+    <header class="fondo">
+        <h1 class="text-center izquierda">U.Cenfotec</h1>
     </header>
-    <section>
-        <h3 class="centrado bajar2">Perfumería Mujer</h3>
-        <p>
-            Descubre la esencia de la feminidad en nuestra perfumería. Ofrecemos fragancias únicas y sofisticadas, cuidadosamente elaboradas para resaltar la elegancia y personalidad de cada mujer. Sumérgete en un universo de aromas cautivadores y déjate envolver por la magia de cada nota, pensadas para inspirar confianza y realzar tu estilo único
-        </p>
-        <div class="centrado">
-            <a class="botones" href="https://www.google.com" target="_blank">Ver más</a>
-        </div>
-    </section>
-    
-    <div class="bajar2"></div>
-    
+
+    <nav class="fondo main-nav">
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="cotizar.html">Cotizar</a></li>
+            <li><a href="nosotros.html">Acerca de</a></li>
+        </ul>
+    </nav>
+
 
     <section>
-        <h3 class="centrado bajar3">Perfumería Hombre</h3>
-        <p>
-            Descubre la esencia de la masculinidad en nuestra perfumería. Nuestra exclusiva selección de fragancias intensas y sofisticadas está diseñada para realzar el carácter y la elegancia del hombre moderno. Cada aroma es una declaración de fuerza y autenticidad, pensado para dejar una impresión duradera
-        </p>
-        <div class="centrado">
-            <a class="botones" href="https://www.ucenfotec.ac.cr" target="_blank">Ver más</a>
-        </div>
-    </section>
-    
-    <div class="bajar2"></div>
+        <div class="container">
+            <div class="video-container-wrapper">
+                <video controls autoplay loop muted class="centered-video">
+                    <source src="videos/video1.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+            </div>
+            <div class="pt-5 separator"></div>
 
-    <section>
-        <h3 class="centrado bajar3">Perfumería Unisex</h3>
-        <p>
-            Explora una fusión de aromas diseñada para trascender géneros. Nuestra exclusiva colección de fragancias unisex combina notas sofisticadas y versátiles, creando una experiencia olfativa única que celebra la individualidad y la autenticidad. Perfecta para quienes buscan romper esquemas y expresar su esencia sin límites
-        </p>
-        <div class="centrado">
-            <a class="botones" href="https://www.teletica.com" target="_blank">Ver más</a>
-        </div>
-    </section>
-    
-    <div class="bajar2"></div>
+            <p class="container">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur augue nibh, mollis in finibus id, mollis non dui. Praesent vel eleifend ante. Praesent vulputate turpis varius consequat luctus. Ut ut eros elementum, venenatis urna sit amet, mattis libero. Praesent id vehicula felis. Suspendisse scelerisque vitae lectus et lobortis. Aenean auctor consectetur lorem non pretium.
+            </p>
+            <div class="container text-center">
+                    <img src="" name="thumb" class="img-fluid"> <br><br>
+                    <a href="#" id="titulo">Fotografías</a>
 
-    <footer class="centrado">
-        <h3 class="centrado formatospie">Derechos reservados</h3>
+                <div class="text-center pt-5">
+                   
+                    <div class="pt-5"></div>
+                    <button class="btn btn-primary btn-lg" onclick="cambiar(-1)">Anterior</button>
+                    <button class="btn btn-primary btn-lg" onclick="cambiar(1)">Siguiente</button>
+                </div>
+            </div>
+
+            <div class="pt-5 "></div>
+
+            </div>
+        </section>
+
+
+    <footer class="fondo">
+        <h2 class="text-white derecha ">Profefrank-Cenfotec</h2>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL " crossorigin="anonymous "></script>
+
+    <script src="js/lightbox1.js"></script>
+    <script src="js/lightbox2.js"></script>
+    <script src="js/tabs.js"></script>
+    <script src="js/carousel.js"></script>
 
 
 </body>
+
 </html>
-
-
-                           
-

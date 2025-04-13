@@ -1,49 +1,196 @@
 <!doctype html>
-<html lang="es">
-  <head>
-    <title>Interfaz Web</title>
+<html lang="en">
+<head>
+    <title>Práctica1 CSS - Login</title>
     <meta charset="utf-8">
-    <link href="imagenes/favicon.png" rel="icon">      
-    <link href="css/index.css" rel="stylesheet">    
-  </head>  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="imagenes/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="css/index.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f8f9fa; /* Fondo claro de Bootstrap */
+            color: #495057; /* Texto oscuro de Bootstrap */
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-  <body>
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 0.25rem; /* Borde redondeado de Bootstrap */
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Sombra de Bootstrap */
+            width: 90%;
+            max-width: 350px; /* Ajuste para un formulario más compacto */
+        }
 
-    <section class="bannerweb configform2">
+        .login-title {
+            color: #007bff; /* Color primario de Bootstrap */
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    <!-- formulario de acceso -->
-      <form method="post">
-      <fieldset>
-        <legend><h3 class="color1">Identificación</h3></legend>
-      <div class="centrado">            
-          <div class="centrado bajar2">
-            <label class="" for="in-txt-user">Usuario:</label>
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            border: 1px solid #ced4da; /* Borde de input de Bootstrap */
+            border-radius: 0.25rem; /* Borde redondeado de Bootstrap */
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        .btn-login { /* Clase específica para el botón de login */
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            width: 100%;
+            transition: box-shadow 0.15s ease-in-out; /* Transición para la sombra */
+        }
+
+        .btn-login:hover {
+            box-shadow: 0 0.5rem 1rem rgba(0, 123, 255, 0.5); /* Iluminación con sombra */
+        }
+
+        .error {
+            border-color: #dc3545; /* Color de error de Bootstrap */
+        }
+
+        .error-message {
+            color: #dc3545; /* Color de error de Bootstrap */
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+
+<section class="login-container">
+    <form id="login-form" method="post" onsubmit="login(event)">
+        <h3 class="login-title">Identificación</h3>
+        <div class="form-group">
+            <label for="in-txt-user">Usuario:</label>
             <input class="form-control" id="in-txt-user" type="text" placeholder="Ingrese su usuario">
-          </div>
-          <div class="centrado bajar2">
-            <label class="" for="in-txt-pass">Contraseña:</label>
+            <div class="error-message" id="user-error"></div>
+        </div>
+        <div class="form-group">
+            <label for="in-txt-pass">Contraseña:</label>
             <input class="form-control" id="in-txt-pass" type="password" placeholder="Ingrese su contraseña">
-          </div>          
-            <div class="centrado bajar2">
-          
-            <!-- aqui va la programacion para ir a la página web landing.html -->
-            <a href="landing.html" class="botones">Entrar</a>
-            
-            
-          </div>
-
-      </div><br><br>     
-    </fieldset>
+            <div class="error-message" id="pass-error"></div>
+        </div>
+        <div class="form-group">
+            <button type="submit" id="btn-login" class="btn-login">Entrar</button>
+        </div>
     </form>
-    </section>
-    
-    <!-- aqui va la programacion JS -->
-    
+</section>
 
-    <!-- cargas CDN desplegables y microinteracciones -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.13/lottie.min.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@0.3.0/dist/lottie-player.js"></script>
-    
-  </body>
-</html>  
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.13/lottie.min.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@0.3.0/dist/lottie-player.js"></script>
+
+<script src="js/background.js"></script>
+<script>
+    /* Al hacer clic en el botón "btn-login", ejecuta la función login */
+    // El listener ahora está adjunto al formulario mediante el atributo onsubmit
+
+    /* Muestra una alerta con un mensaje y animación Lottie */
+    function showAlert(message) {
+        Swal.fire({
+            title: "Verificar la entrada de datos",
+            text: message,
+            confirmButtonText: "Intentar de nuevo",
+            confirmButtonColor: "#dc3545", /* Color de error de Bootstrap */
+            html: `<iframe width="320" height="240" frameborder="0" src="https://lottie.host/embed/d8e2330a-afb2-4d31-a3c0-2b15f72bf604/Utr8M0sWA3.lottie"></iframe> <br><p>${message}</p>`,
+        });
+    }
+
+    /* Función para iniciar sesión */
+    function login(event) {
+        // Evita la recarga de la página al enviar el formulario
+        event.preventDefault();
+
+        const user_input = document.getElementById("in-txt-user").value;
+        const pass_input = document.getElementById("in-txt-pass").value;
+        const username = "cenfo";
+        const password = "123";
+        const inputFields = {
+            "in-txt-user": "user-error",
+            "in-txt-pass": "pass-error"
+        };
+        let hasError = false;
+        let errorMessage = "";
+
+        // Limpiar errores previos
+        for (const id in inputFields) {
+            document.getElementById(id).classList.remove("error");
+            document.getElementById(inputFields[id]).textContent = "";
+        }
+
+        // Validar campos vacíos
+        if (user_input === "") {
+            document.getElementById("in-txt-user").classList.add("error");
+            document.getElementById("user-error").textContent = "El usuario es requerido.";
+            hasError = true;
+        }
+        if (pass_input === "") {
+            document.getElementById("in-txt-pass").classList.add("error");
+            document.getElementById("pass-error").textContent = "La contraseña es requerida.";
+            hasError = true;
+        }
+
+        // Si no hay errores de campos vacíos, verificar credenciales
+        if (!hasError) {
+            if (user_input === username && pass_input === password) {
+                Swal.fire({
+                    title: "Acceso correcto",
+                    showConfirmButton: false,
+                    customClass: {
+                        title: 'formatos1',
+                    },
+                    timer: 5000,
+                    html: `<iframe width="320" height="240" frameborder="0" src="https://lottie.host/embed/98e59942-b7ae-44a9-b3cf-7433817b0310/vUKo8LYQEv.lottie"></iframe> <br><br><p>Esperar un momento...</p>`,
+                }).then(() => {
+                    window.location.href = "landing.html";
+                });
+            } else {
+                showAlert("Usuario o contraseña incorrecta.");
+                document.getElementById("in-txt-user").classList.add("error");
+                document.getElementById("in-txt-pass").classList.add("error");
+            }
+        } else {
+            showAlert(errorMessage);
+        }
+    }
+
+    /* Función para limpiar los campos del formulario */
+    function limpiar() {
+        document.getElementById('in-txt-user').value = "";
+        document.getElementById('in-txt-pass').value = "";
+        // Limpiar también los mensajes de error y clases de error
+        document.getElementById('in-txt-user').classList.remove("error");
+        document.getElementById('user-error').textContent = "";
+        document.getElementById('in-txt-pass').classList.remove("error");
+        document.getElementById('pass-error').textContent = "";
+    }
+</script>
+
+</body>
+</html>

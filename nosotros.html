@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Práctica1 CSS - Contactos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="imagenes/contacts/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            /* padding-top: 60px; /* Ajuste para el header fijo - Lo eliminaremos */
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+    
+        /* Estilos del Header NO fijo */
+        header.main-header {
+            position: static; /* Cambiado a static */
+            background-color: #007bff; /* Un azul más moderno */
+            color: #fff;
+            width: 100%;
+            padding: 15px 2%;
+            height: auto;
+            top: 0;
+            left: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+    
+        header.main-header h1 {
+            font-size: 2.2em;
+            margin: 0;
+            font-weight: 400;
+        }
+    
+        /* Estilos del Nav (ahora posicionado relativamente al header) */
+        nav.main-nav {
+            background-color: rgb(0, 3, 162);
+            color: rgb(235, 235, 235);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: static; /* Cambiado a static */
+            /* top: 60px; /* Altura del header - Lo eliminaremos */
+            width: 100%;
+            z-index: 99; /* Debajo del header pero sobre el contenido */
+        }
+    
+        nav.main-nav ul.nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+    
+        nav.main-nav ul.nav-links li {
+            margin-left: 20px;
+        }
+    
+        nav.main-nav ul.nav-links li:first-child {
+            margin-left: 0;
+        }
+    
+        nav.main-nav ul.nav-links a {
+            text-decoration: none;
+            color: #e8e8e8;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+    
+        nav.main-nav ul.nav-links a:hover {
+            color: #007bff;
+            background-color: #f0f8ff;
+        }
+    
+        section {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            /* padding-top: 50px; /* Espacio adicional para el nav fijo - Lo eliminaremos */
+        }
+    
+        .foto {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid #ddd;
+            transition: transform 0.3s ease-in-out;
+        }
+    
+        .foto:hover {
+            transform: scale(1.05);
+        }
+    
+        .info {
+            flex-grow: 1;
+        }
+    
+        .nombre {
+            font-size: 1.1em;
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    
+        .descripcion {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 3px;
+        }
+    
+        .correo {
+            font-size: 0.9em;
+            color: #777;
+        }
+    
+        .limpiar {
+            clear: both;
+        }
+    
+        footer {
+            position: fixed; /* El footer se mantiene fijo si así lo deseas */
+            background-color: #343a40;
+            color: #fff;
+            bottom: 0;
+            width: 100%;
+            padding: 15px 2%;
+            text-align: center;
+            font-size: 0.9em;
+        }
+    
+        footer h3 {
+            font-size: 1.2em;
+            margin: 0;
+            font-weight: 400;
+        }
+    
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+    
+        a:hover {
+            color: #0056b3;
+        }
+    
+        .contacto-info {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        @media (max-width: 600px) {
+            header.main-header h1 {
+                font-size: 1.8em;
+            }
+    
+            nav.main-nav ul.nav-links li {
+                margin-left: 10px;
+            }
+    
+            nav.main-nav ul.nav-links a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+    
+            section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                /* padding-top: 100px; /* Ajuste mayor para header y nav apilados - Lo eliminaremos */
+            }
+    
+            .foto {
+                margin-right: 0;
+                margin-bottom: 15px;
+                width: 100px;
+                height: 100px;
+            }
+    
+            .info {
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+   
+
+    <nav class="main-nav">
+        <ul class="nav-links">
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="cotizar.html">Cotizar</a></li>
+            <li><a href="nosotros.html">Acerca de</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <img class="foto" src="imagenes/contacts/vendedor1.jpg" alt="Vendedor 1">
+        <div class="info contacto-info">
+            <p class="nombre">Alejandro Gómez</p>
+            <p class="descripcion">Vendedor Senior</p>
+            <p class="correo"><a href="mailto:alejandro.gomez@email.com">alejandro.gomez@email.com</a></p>
+        </div>
+        <article class="limpiar"></article>
+    </section>
+
+    <section>
+        <img class="foto" src="imagenes/contacts/vendedor2.jpg" alt="Vendedor 2">
+        <div class="info contacto-info">
+            <p class="nombre">Sofía Vargas</p>
+            <p class="descripcion">Ejecutiva de Ventas</p>
+            <p class="correo"><a href="mailto:sofia.vargas@email.com">sofia.vargas@email.com</a></p>
+        </div>
+        <article class="limpiar"></article>
+    </section>
+
+    <section>
+        <img class="foto" src="imagenes/contacts/vendedor3.jpg" alt="Vendedor 3">
+        <div class="info contacto-info">
+            <p class="nombre">Javier Pérez</p>
+            <p class="descripcion">Representante de Ventas</p>
+            <p class="correo"><a href="mailto:javier.perez@email.com">javier.perez@email.com</a></p>
+        </div>
+        <article class="limpiar"></article>
+    </section>
+
+    <section>
+        <img class="foto" src="imagenes/contacts/vendedor4.jpg" alt="Vendedor 4">
+        <div class="info contacto-info">
+            <p class="nombre">Isabella Torres</p>
+            <p class="descripcion">Especialista en Ventas</p>
+            <p class="correo"><a href="mailto:isabella.torres@email.com">isabella.torres@email.com</a></p>
+        </div>
+        <article class="limpiar"></article>
+    </section>
+
+    <section>
+        <img class="foto" src="imagenes/contacts/vendedor5.jpg" alt="Vendedor 5">
+        <div class="info contacto-info">
+            <p class="nombre">Martín Castro</p>
+            <p class="descripcion">Asesor Comercial</p>
+            <p class="correo"><a href="mailto:martin.castro@email.com">martin.castro@email.com</a></p>
+        </div>
+        <article class="limpiar"></article>
+    </section>
+
+    <section>
+        <img class="foto" src="imagenes/contacts/vendedor6.jpg" alt="Vendedor 6">
+        <div class="info contacto-info">
+            <p class="nombre">Valeria Ruiz</p>
+            <p class="descripcion">Vendedora Asociada</p>
+            <p class="correo"><a href="mailto:valeria.ruiz@email.com">valeria.ruiz@email.com</a></p>
+        </div>
+        <article class="limpiar"></article>
+    </section>
+
+    <section>
+        <img class="foto" src="imagenes/contacts/vendedor7.jpg" alt="Vendedor 7">
+        <div class="info contacto-info">
+            <p class="nombre">Sebastián Flores</p>
+            <p class="descripcion">Gerente de Ventas</p>
+            <p class="correo"><a href="mailto:sebastian.flores@email.com">sebastian.flores@email.com</a></p>
+        </div>
+        <article class="limpiar"></article>
+    </section>
+
+    <section>
+        <img class="foto" src="imagenes/contacts/vendedor8.jpg" alt="Vendedor 8">
+        <div class="info contacto-info">
+            <p class="nombre">Lucía Vargas</p>
+            <p class="descripcion">Directora de Ventas</p>
+            <p class="correo"><a href="mailto:lucia.vargas@email.com">lucia.vargas@email.com</a></p>
+        </div>
+        <article class="limpiar"></article>
+    </section>
+
+    <footer>
+        <h3 class="text-white">Derechos Reservados</h3>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

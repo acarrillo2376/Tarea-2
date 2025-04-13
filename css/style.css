@@ -1,0 +1,108 @@
+/* style.css */
+
+.perfumeria-section {
+    text-align: center; /* Centra el texto dentro de la sección */
+    padding: 20px; /* Añade un poco de espacio alrededor de la sección */
+    margin-bottom: 30px; /* Espacio entre las secciones de perfumería */
+}
+
+.perfumeria-section h3 {
+    color: #333; /* Color del título */
+    margin-bottom: 15px;
+}
+
+.perfumeria-section p {
+    color: #555; /* Color del texto */
+    line-height: 1.6; /* Mejora la legibilidad del texto */
+    max-width: 800px; /* Limita el ancho del texto para mejor lectura */
+    margin: 0 auto 15px auto; /* Centra horizontalmente el párrafo */
+}
+
+.perfumeria-section .botones {
+    display: inline-block; /* Permite aplicar margin y padding */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+}
+
+.perfumeria-section .botones:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
+.bajar2 {
+    padding-bottom: 20px; /* Espacio vertical */
+}
+
+.bajar3 {
+    padding-bottom: 30px; /* Espacio vertical un poco mayor */
+}
+
+.centrado {
+    text-align: center; /* Centra el contenido inline */
+}
+
+
+/* css/style.css */
+
+/* Estilos existentes */
+.perfumeria-section {
+    text-align: center; /* Centra el texto dentro de la sección */
+    padding: 20px; /* Añade un poco de espacio alrededor de la sección */
+    margin-bottom: 30px; /* Espacio entre las secciones de perfumería */
+}
+
+.perfumeria-section h3 {
+    color: #333; /* Color del título */
+    margin-bottom: 15px;
+}
+
+.perfumeria-section p {
+    color: #555; /* Color del texto */
+    line-height: 1.6; /* Mejora la legibilidad del texto */
+    max-width: 800px; /* Limita el ancho del texto para mejor lectura */
+    margin: 0 auto 15px auto; /* Centra horizontalmente el párrafo */
+}
+
+.perfumeria-section .botones {
+    display: inline-block; /* Permite aplicar margin y padding */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+}
+
+.perfumeria-section .botones:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
+.bajar2 {
+    padding-bottom: 20px; /* Espacio vertical */
+}
+
+.bajar3 {
+    padding-bottom: 30px; /* Espacio vertical un poco mayor */
+}
+
+.centrado {
+    text-align: center; /* Centra el contenido inline */
+}
+
+/* Estilos para el video */
+.video-container-wrapper {
+    display: flex; /* Activa flexbox para centrar */
+    justify-content: center; /* Centra horizontalmente */
+    padding: 20px; /* Espacio alrededor del video */
+}
+
+.centered-video {
+    max-width: 80%; /* Asegura que el video no sea más ancho que su contenedor */
+    height: auto; /* Mantiene la proporción del video */
+    border: 5px solid #ccc; /* Borde alrededor del video */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    border-radius: 8px; /* Bordes redondeados del video */
+}
