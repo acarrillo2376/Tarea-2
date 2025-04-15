@@ -1,0 +1,21 @@
+<Configuration>
+<Add OfficeClientEdition="64" Channel="Current">
+    <Product ID="ProPlusVolume">
+      <Language ID="es-ES" />
+      <ExcludeApp ID="Groove" />
+      <ExcludeApp ID="Lync" />
+      <ExcludeApp ID="OneDrive" />
+    </Product>
+</Add>
+<Display Level="Full" AcceptEULA="TRUE" />
+<Updates Enabled="TRUE" Channel="Current" />
+</Configuration>
+<!--  OInstallSetting Branch=1  -->
+<!--  OInstallSetting Office=0  -->
+<!--  OInstallSetting Arch=0  -->
+<!--  OInstallSetting Redact=1  -->
+<!--  OInstallSetting Product=1  -->
+<!--  OInstallSetting UseODT=0  -->
+<!--  OInstallSetting OnlineKMS=1  -->
+<!--  OInstallSetting PATH=  -->
+<!--  OInstallSetting Lang0=1  -->
